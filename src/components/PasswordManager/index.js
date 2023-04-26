@@ -12,6 +12,7 @@ const initialState = {
   password: '',
   passwordList: [],
   showPassword: false,
+  searchInput: '',
 }
 
 class PasswordManager extends Component {
@@ -124,17 +125,14 @@ class PasswordManager extends Component {
   }
 
   onChangeSearchInput = event => {
-    const {passwordList} = this.state
-    const filteredList = passwordList.filter(eachItem =>
-      eachItem.websiteAddress
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase()),
-    )
-    this.setState({passwordList: filteredList})
+    this.setState({searchInput: event.target.value})
   }
 
   bottomSectionContainer = () => {
-    const {passwordList, showPassword} = this.state
+    const {passwordList, showPassword, searchInput} = this.state
+    const filteredList = passwordList.filter(eachItem =>
+      eachItem.websiteAddress.toLowerCase().includes(searchInput.toLowerCase()),
+    )
 
     return (
       <div className="bottom-section-card">
@@ -154,6 +152,7 @@ class PasswordManager extends Component {
               className="search-input"
               onChange={this.onChangeSearchInput}
               placeholder="Search"
+              value={searchInput}
             />
           </div>
         </div>
@@ -172,9 +171,9 @@ class PasswordManager extends Component {
           </div>
         </div>
 
-        {passwordList.length > 0 ? (
+        {filteredList.length > 0 ? (
           <ul className="list-item-container">
-            {passwordList.map(eachItem => (
+            {filteredList.map(eachItem => (
               <PasswordManagerItem
                 key={eachItem.uniqueId}
                 itemDetails={eachItem}
