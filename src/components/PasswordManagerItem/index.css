@@ -1,0 +1,68 @@
+.list-item {
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  max-width: 550px;
+  margin-bottom: 16px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-item-details {
+  display: flex;
+  flex-direction: row;
+}
+.initial-letter {
+  background-color: #10b981;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+.webAddress {
+  margin: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Roboto';
+}
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 2px;
+}
+.password-image {
+  width: 100px;
+  margin: 2px;
+}
+.delete-button {
+  background-color: transparent;
+  text-align: center;
+  border: none;
+}
+.delete-image {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .list-item {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 280px;
+    /* justify-content: space-between; */
+  }
+}
